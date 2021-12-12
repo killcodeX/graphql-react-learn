@@ -4,8 +4,15 @@
   "description": "App that lists spacex launch missons using graphql",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "aaquib ahmed",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "nodemon": "^2.0.15"
+  }
 }
