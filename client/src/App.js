@@ -7,7 +7,8 @@ import {
   from,
 } from "@apollo/client";
 import { ErrorLink, onError } from "@apollo/client/link/error";
-import GetUsers from "./components/getUsers";
+import GetUsers from "./components/launches";
+import Header from "./components/header";
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors)
@@ -21,7 +22,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 
 const link = from([
   errorLink,
-  new HttpLink({ uri: "http://localhost:4000/graphql" }),
+  new HttpLink({ uri: "http://localhost:5000/graphql" }),
 ]);
 
 const client = new ApolloClient({
@@ -32,7 +33,9 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="App">bla bla bla</div>
+      <div className="App">
+        <Header />
+      </div>
       <GetUsers />
     </ApolloProvider>
   );
