@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useQuery, gql } from "@apollo/client";
-import { LOAD_ALL_LAUNCHES } from "../grapghql/queries";
+import { LOAD_ALL_ROCKETS } from "../grapghql/queries";
 
-export default function GetUsers() {
-  const { loading, error, data } = useQuery(LOAD_ALL_LAUNCHES);
+export default function GetRockets() {
+  const { loading, error, data } = useQuery(LOAD_ALL_ROCKETS);
 
   useEffect(() => {
     console.log("from api `data`-->>", data);
@@ -16,9 +16,9 @@ export default function GetUsers() {
   return (
     <section>
       <div className="container">
-        <h3 className="text-white">Get All Launches</h3>
+        <h3 className="text-white">Get All Rockets</h3>
         <div className="row">
-          {data.launches.map((launch) => {
+          {data.rockets.map((launch) => {
             return (
               <div className="col-md-4" key={launch.flight_number}>
                 <div className="card card-body mb-3">
